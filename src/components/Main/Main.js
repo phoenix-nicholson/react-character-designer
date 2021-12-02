@@ -3,21 +3,34 @@ import Preview from '../../components/Preview/Preview';
 import Editor from '../../components/Editor/Editor';
 import { useState } from 'react';
 import './Main.css';
+import background from '../../background.png';
+
 export default function Main() {
-  const [head, setHead] = useState('head');
-  const [middle, setMiddle] = useState('middle');
-  const [leg, setLeg] = useState('leg');
+  const [head, setHead] = useState('dog-head');
+  const [middle, setMiddle] = useState('dress-middle');
+  const [leg, setLeg] = useState('leg-pants');
   const [phrase, setPhrase] = useState('Phrase');
-  const [headcount, setHeadcount] = useState('headcount');
-  const [middlecount, setMiddlecount] = useState('middlecount');
-  const [legcount, setLegcount] = useState('legcount');
-  const [phrasecount, setPhrasecount] = useState('phrasecount');
+  const [headcount, setHeadcount] = useState(0);
+  const [middlecount, setMiddlecount] = useState(0);
+  const [legcount, setLegcount] = useState(0);
+  const [phrasecount, setPhrasecount] = useState(0);
+  const [namelist, setNamelist] = useState([]);
   return (
-    <main>
+    <main className="background" style={{ backgroundImage: `url(${background})` }}>
       {
         <>
           <Preview
-            {...{ head, middle, leg, phrase, headcount, middlecount, legcount, phrasecount }}
+            {...{
+              head,
+              middle,
+              leg,
+              phrase,
+              headcount,
+              middlecount,
+              legcount,
+              phrasecount,
+              namelist,
+            }}
           />
           <Editor
             {...{
@@ -29,10 +42,21 @@ export default function Main() {
               setHeadcount,
               setMiddlecount,
               setLegcount,
+              setNamelist,
             }}
           />
         </>
       }
+      {!!headcount && <p>You have changed your head {headcount} times!</p>}
+      {!!middlecount && <p>You have changed your middle {middlecount} times!</p>}
+      {!!legcount && <p>You have changed your legs {legcount} times!</p>}
+      {!!namelist.length && (
+        <div>
+          {namelist.localeCompare((elem) => (
+            <p key={elem}>{elem}</p>
+          ))}
+        </div>
+      )}
     </main>
   );
 }
