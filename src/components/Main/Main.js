@@ -3,7 +3,6 @@ import Preview from '../../components/Preview/Preview';
 import Editor from '../../components/Editor/Editor';
 import { useState } from 'react';
 import './Main.css';
-
 export default function Main() {
   const [head, setHead] = useState('head');
   const [middle, setMiddle] = useState('middle');

@@ -38,9 +38,9 @@ export default function Editor({
       </div>
       <div className="form-control">
         <select value={leg} name="leg" onInput={(e) => setLeg(e.target.value)}>
+          <option value="leg-pants">Leg Pants</option>
           <option value="blue-pants">Blue Pants</option>
           <option value="dog-pants">Dog Pants</option>
-          <option value="leg-pants">Leg Pants</option>
           <option value="white-pants">White Pants</option>
         </select>
       </div>
