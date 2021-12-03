@@ -1,5 +1,6 @@
 import React from 'react';
 import './Preview.css';
+
 export default function Preview({ head, middle, leg, phrase }) {
   return (
     <div>

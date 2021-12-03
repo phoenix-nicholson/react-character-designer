@@ -19,19 +19,6 @@ export default function Main() {
     <main className="background" style={{ backgroundImage: `url(${background})` }}>
       {
         <>
-          <Preview
-            {...{
-              head,
-              middle,
-              leg,
-              phrase,
-              headcount,
-              middlecount,
-              legcount,
-              phrasecount,
-              namelist,
-            }}
-          />
           <Editor
             {...{
               setHead,
@@ -57,6 +44,19 @@ export default function Main() {
           ))}
         </div>
       )}
+      <Preview
+        {...{
+          head,
+          middle,
+          leg,
+          phrase,
+          headcount,
+          middlecount,
+          legcount,
+          phrasecount,
+          namelist,
+        }}
+      />
     </main>
   );
 }
